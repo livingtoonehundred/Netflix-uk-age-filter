@@ -1,17 +1,11 @@
 {
-  "version": 2,
-  "name": "netflix-uk-age-filter",
   "builds": [
     {
-      "src": "package.json",
+      "src": "client/**/*",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/public"
+        "distDir": "../dist/public"
       }
-    },
-    {
-      "src": "server/index.ts",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -21,21 +15,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/public/$1"
-    }
-  ],
-  "env": {
-    "TMDB_API_KEY": "@tmdb_api_key"
-  },
-  "functions": {
-    "server/index.ts": {
-      "maxDuration": 30
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
+      "dest": "/client/$1"
     }
   ]
 }

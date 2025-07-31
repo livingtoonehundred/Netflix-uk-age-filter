@@ -12,3 +12,4 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   storageKey = "theme" 
 }) => {
   return <>{children}</>
+}
